@@ -1,0 +1,106 @@
+   
+      /* General body styles for better appearance and font consistency */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Aligns content to the top */
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box; /* Ensures padding doesn't affect total width */
+      }
+
+      /* A container to center the content and give it a max-width */
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      /* Common grid styles */
+      .todo-grid,
+      .todo-input-grid {
+        display: grid;
+        gap: 10px; /* Replaces column-gap and row-gap */
+        align-items: center;
+      }
+      
+      /* Mobile-first: The input grid stacks vertically by default
+        with a single column. 
+      */
+      .todo-input-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+        margin-bottom: 20px;
+      }
+
+      /*
+        The list of todos. The first column (name) is flexible, 
+        while the others fit their content. This works well on all screen sizes.
+      */
+      .todo-grid {
+        grid-template-columns: 1fr auto auto; /* Name | Due Date | Button */
+      }
+     
+      .name-input,
+      .due-date-input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%; /* Makes input fill the grid cell */
+        box-sizing: border-box;
+      }
+      
+      .add-todo-button {
+         font-size: 16px;
+         background-color: #28a745; /* A nicer green */
+         color: white;
+         border: none;
+         cursor: pointer;
+         padding: 10px;
+         border-radius: 4px;
+         transition: background-color 0.2s;
+      }
+
+      .add-todo-button:hover {
+        background-color: #218838;
+      }
+      
+      .delete-todo-button {
+         font-size: 16px;
+         padding: 10px 15px; /* More balanced padding */
+         background-color: #dc3545; /* A nicer red */
+         color: white;
+         border: none;
+         cursor: pointer;
+         border-radius: 4px;
+         transition: background-color 0.2s;
+      }
+
+      .delete-todo-button:hover {
+        background-color: #c82333;
+      }
+
+      /* Breakpoint for larger screens (tablets and desktops) */
+      @media (min-width: 600px) {
+        /*
+          On screens wider than 600px, the input grid switches to a 
+          3-column layout. The first column is flexible.
+        */
+        .todo-input-grid {
+          grid-template-columns: 1fr 150px auto;
+        }
+      }
+
+    
